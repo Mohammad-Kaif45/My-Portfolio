@@ -18,10 +18,10 @@ const projectsData = [
   },
   {
     id: 3,
-    title: 'MERN Portfolio',
+    title: 'My Portfolio',
     description: 'A professional, light-themed developer portfolio built to showcase full-stack capabilities, featuring a React frontend and an Express/MongoDB backend.',
     tech: ['React.js', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB'],
-    github: 'https://github.com/Mohammad-Kaif45' 
+    github: 'https://github.com/Mohammad-Kaif45/My-Portfolio' 
   }
 ];
 
