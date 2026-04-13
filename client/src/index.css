@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  /* Our professional light theme palette */
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-primaryText: #0f172a;
+  --color-secondaryText: #475569;
+  --color-accent: #2563eb;
+}
