@@ -1,73 +1,61 @@
-import React from 'react';
-
-// Temporary data - we will fetch this from MongoDB later
-const projectsData = [
-  {
-    id: 1,
-    title: 'FinVault',
-    description: 'A comprehensive banking management system utilizing a microservices architecture to handle secure transactions and scalable user account management.',
-    tech: ['Java', 'Spring Boot', 'Microservices', 'SQL'],
-    github: 'https://github.com/Mohammad-Kaif45/FinVault' // Update this link if needed
-  },
-  {
-    id: 2,
-    title: 'HarvestHub',
-    description: 'An agricultural e-commerce platform facilitating direct trade. Features robust authentication and a responsive user interface.',
-    tech: ['Spring Boot', 'Spring Security', 'Thymeleaf', 'Java'],
-    github: 'https://github.com/Mohammad-Kaif45/HarvestHub' // Update this link if needed
-  },
-  {
-    id: 3,
-    title: 'My Portfolio',
-    description: 'A professional, light-themed developer portfolio built to showcase full-stack capabilities, featuring a React frontend and an Express/MongoDB backend.',
-    tech: ['React.js', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB'],
-    github: 'https://github.com/Mohammad-Kaif45/My-Portfolio' 
-  }
-];
+import { useState, useEffect } from 'react';
 
 const Projects = () => {
+  // 1. Set up state to hold our database projects
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // 2. Fetch the data when the component loads
+  useEffect(() => {
+    fetch('http://localhost:5000/api/projects')
+      .then((response) => response.json())
+      .then((data) => {
+        setProjects(data); // Save the database info into React state
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching projects:', error);
+        setLoading(false);
+      });
+  }, []);
+
+  // 3. Show a loading message while waiting for the database
+  if (loading) {
+    return (
+      <div className="py-20 text-center text-xl font-semibold text-gray-600">
+        Loading projects from database...
+      </div>
+    );
+  }
+
+  // 4. Render the actual projects
   return (
-    <section id="projects" className="py-20 bg-surface px-6 sm:px-12">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-primaryText mb-12 text-center">
-          Featured Projects
-        </h2>
+    <section id="projects" className="py-20 bg-gray-50">
+      <div className="container mx-auto px-6 max-w-6xl">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">My Work</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projectsData.map((project) => (
-            <div 
-              key={project.id} 
-              className="bg-background border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow duration-300 flex flex-col h-full"
-            >
-              <h3 className="text-xl font-bold text-primaryText mb-3">
-                {project.title}
-              </h3>
-              
-              <p className="text-secondaryText mb-6 flex-grow">
-                {project.description}
-              </p>
+          {projects.map((project) => (
+            <div key={project._id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-800 mb-3">{project.title}</h3>
+              <p className="text-gray-600 mb-4 line-clamp-3">{project.description}</p>
               
               <div className="flex flex-wrap gap-2 mb-6">
-                {project.tech.map((skill, index) => (
-                  <span 
-                    key={index} 
-                    className="px-3 py-1 bg-slate-200 text-slate-700 text-xs font-medium rounded-full"
-                  >
-                    {skill}
+                {project.tech.map((techItem, index) => (
+                  <span key={index} className="bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full">
+                    {techItem}
                   </span>
                 ))}
               </div>
               
-              <div className="mt-auto pt-4 border-t border-slate-200">
-                <a 
-                  href={project.github} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-accent font-medium hover:underline flex items-center gap-1"
-                >
-                  View Repository <span aria-hidden="true">&rarr;</span>
-                </a>
-              </div>
+              <a 
+                href={project.github} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-block text-blue-600 font-semibold hover:text-blue-800 transition-colors"
+              >
+                View on GitHub &rarr;
+              </a>
             </div>
           ))}
         </div>
