@@ -110,10 +110,10 @@ const seedDatabase = async () => {
                     github: 'https://github.com/Mohammad-Kaif45/HarvestHub'
                 },
                 {
-                    title: 'My Portfolio',
+                    title: 'Bank Management System',
                     description: 'A professional developer portfolio built to showcase full-stack capabilities, featuring a React frontend and an Express/MongoDB backend.',
-                    tech: ['React.js', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB'],
-                    github: 'https://github.com/Mohammad-Kaif45/My-Portfolio' 
+                    tech: ['Java','Object Oriented Programming', 'Collection framework','MySql','JDBC',],
+                    github: 'https://github.com/Mohammad-Kaif45/Bank-Management-System' 
                 }
             ]);
             console.log('Projects successfully injected!');

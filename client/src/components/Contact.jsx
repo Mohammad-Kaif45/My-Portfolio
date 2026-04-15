@@ -72,7 +72,7 @@ const Contact = () => {
                   type="text" name="name" id="name" required
                   value={formData.name} onChange={handleChange}
                   className="w-full px-5 py-3 bg-gray-50 border border-gray-200 text-gray-900 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
-                  placeholder="John Doe"
+                  placeholder=""
                 />
               </div>
 
@@ -82,7 +82,7 @@ const Contact = () => {
                   type="email" name="email" id="email" required
                   value={formData.email} onChange={handleChange}
                   className="w-full px-5 py-3 bg-gray-50 border border-gray-200 text-gray-900 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
-                  placeholder="john@company.com"
+                  placeholder=""
                 />
               </div>
 
@@ -92,7 +92,7 @@ const Contact = () => {
                   name="message" id="message" rows="4" required
                   value={formData.message} onChange={handleChange}
                   className="w-full px-5 py-3 bg-gray-50 border border-gray-200 text-gray-900 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none"
-                  placeholder="Hi Kaif, we would love to interview you..."
+                  placeholder=""
                 ></textarea>
               </div>
 
