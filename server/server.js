@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
-const Project = require('./models/Project'); // Import your new blueprint
+const Project = require('./models/Project');
+const Message = require('./models/Message'); 
 
 const app = express();
 
@@ -19,6 +20,7 @@ mongoose.connect(process.env.MONGO_URI)
   })
   .catch((error) => console.error('MongoDB connection error:', error));
 
+
 // --- API ROUTES ---
 
 // GET: Fetch all projects
@@ -28,6 +30,19 @@ app.get('/api/projects', async (req, res) => {
         res.json(projects);
     } catch (error) {
         res.status(500).json({ message: 'Server error fetching projects' });
+    }
+});
+
+// POST: Submit a new contact message (THIS WAS MISSING!)
+app.post('/api/messages', async (req, res) => {
+    try {
+        const { name, email, message } = req.body; 
+        const newMessage = new Message({ name, email, message });
+        await newMessage.save();
+        res.status(201).json({ success: true, text: 'Message sent successfully!' });
+    } catch (error) {
+        console.error('Error saving message:', error);
+        res.status(500).json({ success: false, text: 'Failed to send message.' });
     }
 });
 
