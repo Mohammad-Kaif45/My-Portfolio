@@ -13,6 +13,6 @@ const messageSchema = new mongoose.Schema({
         type: String,
         required: true
     }
-}, { timestamps: true }); // This automatically records exactly when they sent the message
+}, { timestamps: true }); // This automatically records exactly when they sent the message -> time stamp
 
 module.exports = mongoose.model('Message', messageSchema);
