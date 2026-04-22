@@ -10,7 +10,7 @@ const projectSchema = new mongoose.Schema({
         required: true
     },
     tech: {
-        type: [String], // This tells MongoDB to expect an array of strings (e.g., ['React', 'Node'])
+        type: [String], // This tells to  MongoDB to expect an array of strings (e.g., ['React', 'Node'])
         required: true
     },
     github: {
