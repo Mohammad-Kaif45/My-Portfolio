@@ -17,6 +17,6 @@ const projectSchema = new mongoose.Schema({
         type: String,
         required: true
     }
-}, { timestamps: true }); // Automatically adds createdAt and updatedAt dates
+}, { timestamps: true }); // Automatically adds createdate and add date
 
-module.exports = mongoose.model('Project', projectSchema); // project
+module.exports = mongoose.model('Project', projectSchema); 
