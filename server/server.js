@@ -81,6 +81,7 @@ app.post('/api/messages', async (req, res) => {
         // 4. Send the Email
         await transporter.sendMail(mailOptions);
 
+        // status
         res.status(201).json({ success: true, text: 'Message sent successfully!' });
     } catch (error) {
         console.error('Error saving or sending message:', error);
