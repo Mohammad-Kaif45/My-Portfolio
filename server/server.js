@@ -53,15 +53,38 @@ app.post('/api/messages', async (req, res) => {
         //     }
         // });
 
-        const transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 465,
-            secure: true, // This forces it to use the secure port
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS
-            }
+        // const transporter = nodemailer.createTransport({
+        //     host: 'smtp.gmail.com',
+        //     port: 465,
+        //     secure: true, // This forces it to use the secure port
+        //     auth: {
+        //         user: process.env.EMAIL_USER,
+        //         pass: process.env.EMAIL_PASS
+        //     }
+        // });
+
+        // 1. Save message to your MongoDB (Keep your existing code for this!)
+        const newMessage = new Message({ name, email, message });
+        await newMessage.save();
+
+        // 2. Send the Email using Web3Forms (This bypasses Render's firewall)
+        await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                access_key: "396ca0d3-ae4e-4f96-8ee1-f058d197daba", // Paste your key from the email
+                name: name,
+                email: email,
+                message: message,
+                subject: "New Message from Portfolio Website"
+            })
         });
+
+        // 3. Send success response back to React
+        res.status(200).json({ success: true, message: 'Message sent perfectly!' });
 
         // 3. The Professional HTML Email Template
         const mailOptions = {
