@@ -54,9 +54,9 @@ const Navbar = () => {
           <div className="h-px w-full bg-slate-100 my-2"></div> {/* Divider */}
           
           <div className="flex flex-wrap gap-4">
-            <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noreferrer" className="text-sm font-semibold text-[#0A66C2]">LinkedIn</a>
-            <a href="https://leetcode.com/your-profile" target="_blank" rel="noreferrer" className="text-sm font-semibold text-[#FFA116]">LeetCode</a>
-            <a href="https://hackerrank.com/your-profile" target="_blank" rel="noreferrer" className="text-sm font-semibold text-[#00EA64]">HackerRank</a>
+            <a href="https://www.linkedin.com/in/ansari-kaif-0540872aa/" target="_blank" rel="noreferrer" className="text-sm font-semibold text-[#0A66C2]">LinkedIn</a>
+            <a href="https://leetcode.com/u/kaif_0046/" target="_blank" rel="noreferrer" className="text-sm font-semibold text-[#FFA116]">LeetCode</a>
+            <a href="https://www.hackerrank.com/profile/kaifmumtajansari" target="_blank" rel="noreferrer" className="text-sm font-semibold text-[#00EA64]">HackerRank</a>
             <a href="https://github.com/Mohammad-Kaif45" target="_blank" rel="noreferrer" className="text-sm font-semibold text-slate-900">GitHub</a>
           </div>
         </div>
