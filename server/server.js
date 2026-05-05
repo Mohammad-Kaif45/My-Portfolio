@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const Project = require('./models/Project');
@@ -34,25 +33,24 @@ app.get('/api/projects', async (req, res) => {
     }
 });
 
-// POST: Submit a new contact message (THIS WAS MISSING!)
 // POST: Catch, save, and email a new contact message
 app.post('/api/messages', async (req, res) => {
     try {
         const { name, email, message } = req.body;
 
-        // 1. Save to MongoDB (Just like before)
+        // 1. Save to MongoDB
         const newMessage = new Message({ name, email, message });
         await newMessage.save();
         
-        // 2. Send the Email using Web3Forms (This bypasses Render's firewall)
-        await fetch("https://api.web3forms.com/submit", {
+        // 2. Send the Email using Web3Forms (Bypassing Render Firewall)
+        const response = await fetch("https://api.web3forms.com/submit", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
             body: JSON.stringify({
-                access_key: "396ca0d3-ae4e-4f96-8ee1-f058d197daba", // Paste your key from the email
+                access_key: "396ca0d3-ae4e-4f96-8ee1-f058d197daba", // Your Web3Forms key
                 name: name,
                 email: email,
                 message: message,
@@ -60,42 +58,18 @@ app.post('/api/messages', async (req, res) => {
             })
         });
 
-        // 3. Send success response back to React
-        res.status(200).json({ success: true, message: 'Message sent perfectly!' });
+        const result = await response.json();
 
-        // 3. The Professional HTML Email Template
-        const mailOptions = {
-            from: process.env.EMAIL_USER,
-            to: process.env.EMAIL_USER, // Sending it to yourself
-            subject: `💼 New Portfolio Message from ${name}`,
-            html: `
-                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-                    <div style="text-align: center; border-bottom: 2px solid #2563eb; padding-bottom: 15px; margin-bottom: 20px;">
-                        <h2 style="color: #2563eb; margin: 0;">New Contact Form Submission</h2>
-                    </div>
-                    <p style="font-size: 16px; color: #333;"><strong>👤 Name:</strong> ${name}</p>
-                    <p style="font-size: 16px; color: #333;"><strong>✉️ Email:</strong> <a href="mailto:${email}" style="color: #2563eb;">${email}</a></p>
-                    
-                    <h3 style="color: #4b5563; margin-top: 30px;">📝 Message:</h3>
-                    <div style="background-color: #f9fafb; padding: 15px; border-left: 4px solid #2563eb; border-radius: 4px;">
-                        <p style="font-size: 15px; line-height: 1.6; color: #1f2937; margin: 0; white-space: pre-wrap;">${message}</p>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e0e0e0;">
-                        <p style="font-size: 12px; color: #9ca3af;">This email was automatically generated from your MERN Portfolio.</p>
-                    </div>
-                </div>
-            `
-        };
+        // 3. Send single success response back to React
+        if (result.success) {
+            return res.status(200).json({ success: true, message: 'Message sent perfectly!' });
+        } else {
+            return res.status(500).json({ success: false, message: 'Failed to send via Web3Forms' });
+        }
 
-        // 4. Send the Email to user
-        await transporter.sendMail(mailOptions);
-
-        // status
-        res.status(201).json({ success: true, text: 'Message sent successfully!' });
     } catch (error) {
-        console.error('Error saving or sending message:', error);
-        res.status(500).json({ success: false, text: 'Failed to process message.' });
+        console.error("Error:", error);
+        return res.status(500).json({ success: false, message: 'Server error' });
     }
 });
 
@@ -123,7 +97,7 @@ const seedDatabase = async () => {
                 {
                     title: 'Bank Management System',
                     description: 'A professional developer portfolio built to showcase full-stack capabilities, featuring a React frontend and an Express/MongoDB backend.',
-                    tech: ['Java', 'Object Oriented Programming', 'Collection framework', 'MySql', 'JDBC',],
+                    tech: ['Java', 'Object Oriented Programming', 'Collection framework', 'MySql', 'JDBC'],
                     github: 'https://github.com/Mohammad-Kaif45/Bank-Management-System'
                 }
             ]);
