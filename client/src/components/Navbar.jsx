@@ -22,9 +22,9 @@ const Navbar = () => {
           
           <div className="w-px h-4 bg-slate-300"></div> {/* Divider */}
           
-          <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noreferrer" className="hover:text-[#0A66C2] transition-colors">LinkedIn</a>
-          <a href="https://leetcode.com/your-profile" target="_blank" rel="noreferrer" className="hover:text-[#FFA116] transition-colors">LeetCode</a>
-          <a href="https://hackerrank.com/your-profile" target="_blank" rel="noreferrer" className="hover:text-[#00EA64] transition-colors">HackerRank</a>
+          <a href="https://www.linkedin.com/in/ansari-kaif-0540872aa/" target="_blank" rel="noreferrer" className="hover:text-[#0A66C2] transition-colors">LinkedIn</a>
+          <a href="https://leetcode.com/u/kaif_0046" target="_blank" rel="noreferrer" className="hover:text-[#FFA116] transition-colors">LeetCode</a>
+          <a href="https://www.hackerrank.com/profile/kaifmumtajansari" target="_blank" rel="noreferrer" className="hover:text-[#00EA64] transition-colors">HackerRank</a>
           <a href="https://github.com/Mohammad-Kaif45" target="_blank" rel="noreferrer" className="hover:text-black transition-colors">GitHub</a>
         </div>
 
