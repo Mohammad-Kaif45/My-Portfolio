@@ -13,7 +13,7 @@ const Contact = () => {
     setStatus('Sending...');
 
     try {
-      const response = await fetch('https://my-portfolio-ny82.onrender.com', {
+      const response = await fetch('https://my-portfolio-ny82.onrender.com/api/messages', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

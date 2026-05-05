@@ -6,7 +6,7 @@ const Projects = () => {
 
   useEffect(() => {
     // Fetching from your working local backend
-    fetch('https://my-portfolio-ny82.onrender.com')
+    fetch('https://my-portfolio-ny82.onrender.com/api/projects')
       .then((response) => response.json())
       .then((data) => {
         setProjects(data);
