@@ -43,30 +43,7 @@ app.post('/api/messages', async (req, res) => {
         // 1. Save to MongoDB (Just like before)
         const newMessage = new Message({ name, email, message });
         await newMessage.save();
-
-        // 2. Set up the Email Transporter (Connecting to Gmail)
-        // const transporter = nodemailer.createTransport({
-        //     service: 'gmail',
-        //     auth: {
-        //         user: process.env.EMAIL_USER,
-        //         pass: process.env.EMAIL_PASS
-        //     }
-        // });
-
-        // const transporter = nodemailer.createTransport({
-        //     host: 'smtp.gmail.com',
-        //     port: 465,
-        //     secure: true, // This forces it to use the secure port
-        //     auth: {
-        //         user: process.env.EMAIL_USER,
-        //         pass: process.env.EMAIL_PASS
-        //     }
-        // });
-
-        // 1. Save message to your MongoDB (Keep your existing code for this!)
-        const newMessage = new Message({ name, email, message });
-        await newMessage.save();
-
+        
         // 2. Send the Email using Web3Forms (This bypasses Render's firewall)
         await fetch("https://api.web3forms.com/submit", {
             method: "POST",
