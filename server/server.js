@@ -45,13 +45,23 @@ app.post('/api/messages', async (req, res) => {
         await newMessage.save();
 
         // 2. Set up the Email Transporter (Connecting to Gmail)
+        // const transporter = nodemailer.createTransport({
+        //     service: 'gmail',
+        //     auth: {
+        //         user: process.env.EMAIL_USER,
+        //         pass: process.env.EMAIL_PASS
+        //     }
+        // });
+
         const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS
-            }
-        });
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true, // This forces it to use the secure port
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+    }
+});
 
         // 3. The Professional HTML Email Template
         const mailOptions = {
