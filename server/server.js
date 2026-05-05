@@ -5,7 +5,7 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const Project = require('./models/Project');
-const Message = require('./models/Message'); 
+const Message = require('./models/Message');
 
 const app = express();
 
@@ -15,11 +15,11 @@ app.use(express.json());
 
 // Database Connection
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => {
-      console.log('Successfully connected to MongoDB.');
-      seedDatabase(); // Run the auto-injector once connected
-  })
-  .catch((error) => console.error('MongoDB connection error:', error));
+    .then(() => {
+        console.log('Successfully connected to MongoDB.');
+        seedDatabase(); // Run the auto-injector once connected
+    })
+    .catch((error) => console.error('MongoDB connection error:', error));
 
 
 // --- API ROUTES ---
@@ -38,7 +38,7 @@ app.get('/api/projects', async (req, res) => {
 // POST: Catch, save, and email a new contact message
 app.post('/api/messages', async (req, res) => {
     try {
-        const { name, email, message } = req.body; 
+        const { name, email, message } = req.body;
 
         // 1. Save to MongoDB (Just like before)
         const newMessage = new Message({ name, email, message });
@@ -54,14 +54,14 @@ app.post('/api/messages', async (req, res) => {
         // });
 
         const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true, // This forces it to use the secure port
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-    }
-});
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true, // This forces it to use the secure port
+            auth: {
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS
+            }
+        });
 
         // 3. The Professional HTML Email Template
         const mailOptions = {
@@ -123,8 +123,8 @@ const seedDatabase = async () => {
                 {
                     title: 'Bank Management System',
                     description: 'A professional developer portfolio built to showcase full-stack capabilities, featuring a React frontend and an Express/MongoDB backend.',
-                    tech: ['Java','Object Oriented Programming', 'Collection framework','MySql','JDBC',],
-                    github: 'https://github.com/Mohammad-Kaif45/Bank-Management-System' 
+                    tech: ['Java', 'Object Oriented Programming', 'Collection framework', 'MySql', 'JDBC',],
+                    github: 'https://github.com/Mohammad-Kaif45/Bank-Management-System'
                 }
             ]);
             console.log('Projects successfully injected!');
