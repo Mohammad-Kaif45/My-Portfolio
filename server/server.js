@@ -78,7 +78,7 @@ app.post('/api/messages', async (req, res) => {
             `
         };
 
-        // 4. Send the Email
+        // 4. Send the Email to user
         await transporter.sendMail(mailOptions);
 
         // status
