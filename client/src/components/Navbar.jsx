@@ -12,7 +12,7 @@ const Navbar = () => {
         
         {/* Logo / Name */}
         <div className="text-2xl font-black text-slate-900 tracking-tighter">
-          Kaif<span className="text-slate-400">.</span>
+          Kaif Mumtaj<span className="text-slate-400"> Ansari</span>
         </div>
 
         {/* Desktop Navigation (Hidden on Mobile) */}
