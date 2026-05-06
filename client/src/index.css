@@ -8,3 +8,67 @@
   --color-secondaryText: #475569;
   --color-accent: #2563eb;
 }
+
+/* client/src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Existing animation code... */
+@keyframes blob {
+  /* ... */
+}
+.animate-blob {
+  /* ... */
+}
+.animation-delay-2000 {
+  /* ... */
+}
+
+/* --- THE FULLY DARK ENGINEER THEME UPGRADE --- */
+
+/* 1. Reset everything to a clean technical style */
+@layer base {
+  body {
+    @apply bg-gray-950 text-gray-100 font-sans antialiased;
+  }
+}
+
+/* 2. Configure Tailwind's colors for our Engineering theme (Lime Green Accent) */
+@layer components {
+  /* Make all default text light against the dark background */
+  h1, h2, h3, h4 {
+    @apply text-gray-50;
+  }
+  p {
+    @apply text-gray-300;
+  }
+
+  /* establish the lime-green engineering accent for all components to use */
+  .text-accent {
+    @apply text-lime-400;
+  }
+  .bg-accent {
+    @apply bg-lime-500;
+  }
+  .border-accent {
+    @apply border-lime-500;
+  }
+}
+
+/* 3. Ensure other existing components work against the dark backdrop */
+#projects, #contact {
+    /* (You don't need code here, they will naturally look good on the new dark background) */
+}
+#contact button {
+    /* Update existing buttons to use the new engineering lime-green accent */
+    @apply bg-gradient-to-r from-lime-500 to-lime-600 !important;
+    @apply text-gray-950 font-bold hover:from-lime-600 hover:to-lime-700 !important;
+}
+#contact form div label {
+    @apply text-gray-200 font-semibold !important;
+}
+#contact form div input, #contact form div textarea {
+    @apply bg-gray-800 border-gray-700 text-gray-100 !important;
+    @apply focus:ring-lime-500 focus:border-lime-500 !important;
+}
