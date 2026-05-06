@@ -13,7 +13,24 @@ const Contact = () => {
     setStatus('Sending...');
 
     try {
-      const response = await fetch('https://my-portfolio-ny82.onrender.com/api/messages', {
+      // 1. Send the Email directly from the browser to Web3Forms (Bypasses Cloudflare block!)
+      const emailResponse = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            access_key: "396ca0d3-ae4e-4f96-8ee1-f058d197daba",
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+            subject: "New Message from Portfolio Website"
+        })
+      });
+
+      // 2. Save a backup to your MongoDB via Render backend
+      await fetch('https://my-portfolio-ny82.onrender.com/api/messages', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -21,16 +38,14 @@ const Contact = () => {
         body: JSON.stringify(formData), 
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
+      if (emailResponse.ok) {
         setStatus('Message sent successfully! I will get back to you soon.');
         setFormData({ name: '', email: '', message: '' }); 
       } else {
         setStatus('Failed to send message. Please try again.');
       }
     } catch (error) {
-      setStatus('Network error. Is the server running?');
+      setStatus('Network error. Please try again.');
     }
   };
 
@@ -38,7 +53,7 @@ const Contact = () => {
     <section id="contact" className="py-24 bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="container mx-auto px-6 max-w-4xl relative">
         
-        {/* Background decorative blobs (Optional but adds a premium feel) */}
+        {/* Background decorative blobs */}
         <div className="absolute top-0 -left-4 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob"></div>
         <div className="absolute top-0 -right-4 w-72 h-72 bg-indigo-300 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob animation-delay-2000"></div>
 
@@ -72,7 +87,6 @@ const Contact = () => {
                   type="text" name="name" id="name" required
                   value={formData.name} onChange={handleChange}
                   className="w-full px-5 py-3 bg-gray-50 border border-gray-200 text-gray-900 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
-                  placeholder=""
                 />
               </div>
 
@@ -82,7 +96,6 @@ const Contact = () => {
                   type="email" name="email" id="email" required
                   value={formData.email} onChange={handleChange}
                   className="w-full px-5 py-3 bg-gray-50 border border-gray-200 text-gray-900 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
-                  placeholder=""
                 />
               </div>
 
@@ -92,7 +105,6 @@ const Contact = () => {
                   name="message" id="message" rows="4" required
                   value={formData.message} onChange={handleChange}
                   className="w-full px-5 py-3 bg-gray-50 border border-gray-200 text-gray-900 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none"
-                  placeholder=""
                 ></textarea>
               </div>
 

@@ -20,20 +20,19 @@ mongoose.connect(process.env.MONGO_URI)
     })
     .catch((error) => console.error('MongoDB connection error:', error));
 
-
 // --- API ROUTES ---
 
 // GET: Fetch all projects
 app.get('/api/projects', async (req, res) => {
     try {
-        const projects = await Project.find(); // Grab everything from the database
+        const projects = await Project.find();
         res.json(projects);
     } catch (error) {
         res.status(500).json({ message: 'Server error fetching projects' });
     }
 });
 
-// POST: Catch, save, and email a new contact message
+// POST: Catch and save a new contact message to the database ONLY
 app.post('/api/messages', async (req, res) => {
     try {
         const { name, email, message } = req.body;
@@ -42,30 +41,8 @@ app.post('/api/messages', async (req, res) => {
         const newMessage = new Message({ name, email, message });
         await newMessage.save();
         
-        // 2. Send the Email using Web3Forms (Bypassing Render Firewall)
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({
-                access_key: "396ca0d3-ae4e-4f96-8ee1-f058d197daba", // Your Web3Forms key
-                name: name,
-                email: email,
-                message: message,
-                subject: "New Message from Portfolio Website"
-            })
-        });
-
-        const result = await response.json();
-
-        // 3. Send single success response back to React
-        if (result.success) {
-            return res.status(200).json({ success: true, message: 'Message sent perfectly!' });
-        } else {
-            return res.status(500).json({ success: false, message: 'Failed to send via Web3Forms' });
-        }
+        // 2. Send success response back to React
+        return res.status(200).json({ success: true, message: 'Message saved to database!' });
 
     } catch (error) {
         console.error("Error:", error);
@@ -73,9 +50,7 @@ app.post('/api/messages', async (req, res) => {
     }
 });
 
-
 // --- TEMPORARY DATA SEEDER ---
-// This function adds your projects automatically if the database is empty
 const seedDatabase = async () => {
     try {
         const count = await Project.countDocuments();
