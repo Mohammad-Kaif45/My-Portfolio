@@ -24,6 +24,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Experience from './components/Experience';
 import Footer from './components/Footer';
+import Education from './components/Education';
 // import Footer from './components/Footer';
 
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
       <Intro />
       <Skills />
       <Experience />
+      <Education/>
       <Projects />
       <Contact />
       
