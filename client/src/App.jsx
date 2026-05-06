@@ -23,6 +23,7 @@ import Skills from './components/Skills'; // Import the new Skills section
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Experience from './components/Experience';
+import Footer from './components/Footer';
 // import Footer from './components/Footer';
 
 const App = () => {
@@ -43,7 +44,7 @@ const App = () => {
       <Projects />
       <Contact />
       
-      
+      <Footer/>
     </div>
   );
 };
