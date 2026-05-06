@@ -26,6 +26,7 @@ import Experience from './components/Experience';
 import Footer from './components/Footer';
 import Education from './components/Education';
 import CurrentlyExploring from './components/CurrentlyExploring';
+import AboutMe from './components/AboutMe';
 // import Footer from './components/Footer';
 
 const App = () => {
@@ -46,6 +47,7 @@ const App = () => {
       <Education/>
       <Projects />
       <CurrentlyExploring/>
+      <AboutMe/>
       <Contact />
       
       <Footer/>
