@@ -1,15 +1,29 @@
 @import "tailwindcss";
 
-/* 1. Safely apply the dark background */
-body {
-  @apply bg-gray-950 text-gray-100 font-sans antialiased;
+@layer base {
+  /* 1. Set the main background to a clean, very light blue/gray and text to dark */
+  body {
+    @apply bg-slate-50 text-slate-900 font-sans antialiased;
+  }
+
+  /* 2. Force all headings to be dark navy blue so they are visible! */
+  h1, h2, h3, h4 {
+    @apply text-slate-900 font-bold;
+  }
+
+  /* 3. Make paragraphs a readable dark gray */
+  p {
+    @apply text-slate-600;
+  }
 }
 
-/* 2. Safely apply light text */
-h1, h2, h3, h4 {
-  @apply text-gray-50;
+/* Blue styling for your contact form buttons */
+#contact button {
+    @apply bg-blue-600 text-white font-bold hover:bg-blue-700 !important;
 }
-
-p {
-  @apply text-gray-300;
+#contact form div label {
+    @apply text-slate-700 font-semibold !important;
+}
+#contact form div input, #contact form div textarea {
+    @apply bg-white border-slate-300 text-slate-900 focus:ring-blue-500 focus:border-blue-500 !important;
 }
