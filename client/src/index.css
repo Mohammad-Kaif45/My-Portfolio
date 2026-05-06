@@ -17,13 +17,13 @@
   }
 }
 
-/* Blue styling for your contact form buttons */
+/* Blue styling for your contact form buttons without the crashing tags */
 #contact button {
-    @apply bg-blue-600 text-white font-bold hover:bg-blue-700 !important;
+    @apply bg-blue-600 text-white font-bold hover:bg-blue-700;
 }
 #contact form div label {
-    @apply text-slate-700 font-semibold !important;
+    @apply text-slate-700 font-semibold;
 }
 #contact form div input, #contact form div textarea {
-    @apply bg-white border-slate-300 text-slate-900 focus:ring-blue-500 focus:border-blue-500 !important;
+    @apply bg-white border-slate-300 text-slate-900 focus:ring-blue-500 focus:border-blue-500;
 }
