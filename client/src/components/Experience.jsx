@@ -4,10 +4,10 @@ import React from 'react';
 const experiences = [
   {
     id: 1,
-    role: "Web Developer",
+    role: "Java Web Developer",
     company: "MaMo TechnoLabs LLP",
     location: "Vadodara, Gujarat",
-    duration: "Current",
+    duration: "3 Months Internship",
     highlights: [
       "Engineered enterprise-level backend solutions utilizing Java and Spring Boot.",
       "Designed and implemented complex Microservices architectures featuring robust Service Discovery.",
