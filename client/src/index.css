@@ -1,29 +1,6 @@
-@import "tailwindcss";
-
-@theme {
-  /* Our professional light theme palette */
-  --color-background: #f8fafc;
-  --color-surface: #ffffff;
-  --color-primaryText: #0f172a;
-  --color-secondaryText: #475569;
-  --color-accent: #2563eb;
-}
-
-/* client/src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Existing animation code... */
-@keyframes blob {
-  /* ... */
-}
-.animate-blob {
-  /* ... */
-}
-.animation-delay-2000 {
-  /* ... */
-}
 
 /* --- THE FULLY DARK ENGINEER THEME UPGRADE --- */
 
@@ -57,9 +34,6 @@
 }
 
 /* 3. Ensure other existing components work against the dark backdrop */
-#projects, #contact {
-    /* (You don't need code here, they will naturally look good on the new dark background) */
-}
 #contact button {
     /* Update existing buttons to use the new engineering lime-green accent */
     @apply bg-gradient-to-r from-lime-500 to-lime-600 !important;
