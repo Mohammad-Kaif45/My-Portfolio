@@ -28,7 +28,7 @@ const App = () => {
   return (
     <div className="App bg-gray-950 min-h-screen text-gray-100">
       <Navbar />
-      
+      <Hero />
       {/* 
         This is the modern, technical layout: 
         1. Intro (Who are you and why does it matter?)
