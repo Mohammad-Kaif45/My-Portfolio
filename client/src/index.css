@@ -31,11 +31,11 @@
 
 /* Ensure other existing components work against the dark backdrop */
 #contact button {
-    @apply bg-gradient-to-r from-lime-500 to-lime-600 text-gray-950 font-bold hover:from-lime-600 hover:to-lime-700 !important;
+    @apply bg-gradient-to-r from-lime-500 to-lime-600 text-gray-950 font-bold hover:from-lime-600 hover:to-lime-700;
 }
 #contact form div label {
-    @apply text-gray-200 font-semibold !important;
+    @apply text-gray-200 font-semibold;
 }
 #contact form div input, #contact form div textarea {
-    @apply bg-gray-800 border-gray-700 text-gray-100 focus:ring-lime-500 focus:border-lime-500 !important;
+    @apply bg-gray-800 border-gray-700 text-gray-100 focus:ring-lime-500 focus:border-lime-500;
 }
