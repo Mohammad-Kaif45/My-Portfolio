@@ -25,6 +25,7 @@ import Contact from './components/Contact';
 import Experience from './components/Experience';
 import Footer from './components/Footer';
 import Education from './components/Education';
+import CurrentlyExploring from './components/CurrentlyExploring';
 // import Footer from './components/Footer';
 
 const App = () => {
@@ -44,6 +45,7 @@ const App = () => {
       <Experience />
       <Education/>
       <Projects />
+      <CurrentlyExploring/>
       <Contact />
       
       <Footer/>
