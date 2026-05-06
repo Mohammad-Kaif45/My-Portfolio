@@ -89,9 +89,10 @@ const Navbar = () => {
           <div className="w-px h-5 bg-slate-300 mx-1"></div>
 
           {/* Social Links (Replace # with your actual profile links) */}
-          <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">LinkedIn</a>
-          <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">LeetCode</a>
-          <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">GitHub</a>
+          <a href="https://www.linkedin.com/in/ansari-kaif-0540872aa/" target="_blank" rel="noreferrer" className="text-sm font-semibold text-[#0A66C2]">LinkedIn</a>
+             <a href="https://leetcode.com/u/kaif_0046/" target="_blank" rel="noreferrer" className="text-sm font-semibold text-[#FFA116]">LeetCode</a>
+             <a href="https://www.hackerrank.com/profile/kaifmumtajansari" target="_blank" rel="noreferrer" className="text-sm font-semibold text-[#00EA64]">HackerRank</a>
+             <a href="https://github.com/Mohammad-Kaif45" target="_blank" rel="noreferrer" className="text-sm font-semibold text-slate-900">GitHub</a>
 
           {/* THE NEW RESUME BUTTON */}
           <a 
