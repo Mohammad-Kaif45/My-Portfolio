@@ -1,89 +1,75 @@
-import { useState, useEffect } from 'react';
+// client/src/components/Projects.jsx
+import React from 'react';
+
+const projects = [
+  {
+    id: 1,
+    title: "FinVault Banking System",
+    description: "A scalable banking management system engineered with a robust microservices architecture. Designed to handle secure financial transactions, user account management, and high-availability operations.",
+    techStack: ["Java", "Spring Boot", "Microservices", "MySQL", "REST API"],
+    githubLink: "https://github.com/Mohammad-Kaif45/FinVault-Banking-System", // Replace with your exact repo link
+  },
+  {
+    id: 2,
+    title: "HarvestHub E-Commerce",
+    description: "A full-stack agricultural platform facilitating direct trade between farmers and retailers. Features secure authentication, dynamic user interfaces, and seamless API integrations.",
+    techStack: ["React.js", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+    githubLink: "https://github.com/Mohammad-Kaif45/HarvestHub", // Replace with your exact repo link
+  }
+];
 
 const Projects = () => {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Fetching from your working local backend
-    fetch('https://my-portfolio-ny82.onrender.com/api/projects')
-      .then((response) => response.json())
-      .then((data) => {
-        setProjects(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error('Error fetching projects:', error);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="py-24 text-center flex flex-col items-center justify-center bg-slate-50">
-        <div className="w-10 h-10 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin mb-4"></div>
-        <p className="text-slate-600 font-medium">Loading projects from database...</p>
-      </div>
-    );
-  }
-
   return (
-    <section id="projects" className="py-24 bg-slate-50 relative">
+    <section id="projects" className="py-24 bg-white text-slate-900">
       <div className="container mx-auto px-6 max-w-6xl">
         
-        {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">Featured Work</h2>
-          <div className="w-16 h-1 bg-slate-800 mx-auto rounded-full"></div>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tighter text-slate-900">
+            Featured <span className="text-blue-600">Projects</span>
+          </h2>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            A selection of my best technical work, showcasing full-stack development and enterprise-grade architecture.
+          </p>
         </div>
-        
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project) => (
             <div 
-              key={project._id} 
-              className="group bg-white rounded-2xl p-8 border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+              key={project.id} 
+              className="bg-slate-50 border border-slate-200 rounded-2xl p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between"
             >
-              {/* Project Title with subtle icon */}
-              <div className="flex items-start gap-3 mb-4">
-                <svg className="w-6 h-6 text-slate-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                </svg>
-                <h3 className="text-xl font-bold text-slate-900 leading-tight">{project.title}</h3>
+              <div>
+                <h3 className="text-2xl font-bold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-slate-600 mb-6 leading-relaxed">
+                  {project.description}
+                </p>
+                
+                {/* Tech Stack Pills */}
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {project.techStack.map((tech, index) => (
+                    <span 
+                      key={index} 
+                      className="px-3 py-1 bg-white border border-slate-200 text-blue-700 rounded-md text-xs font-bold shadow-sm"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-              
-              {/* Description */}
-              <p className="text-slate-600 mb-6 line-clamp-3 leading-relaxed flex-grow">
-                {project.description}
-              </p>
-              
-              {/* Tech Stack Tags (Monochrome) */}
-              <div className="flex flex-wrap gap-2 mb-8 mt-auto">
-                {project.tech.map((techItem, index) => (
-                  <span 
-                    key={index} 
-                    className="bg-slate-100 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-200"
-                  >
-                    {techItem}
-                  </span>
-                ))}
-              </div>
-              
-              {/* Action Link with animated arrow */}
-              <a 
-                href={project.github} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="inline-flex items-center text-sm font-bold text-slate-900 hover:text-slate-600 transition-colors group/link mt-auto pt-4 border-t border-slate-100"
-              >
-                View Repository 
-                <svg 
-                  className="w-4 h-4 ml-1 transform group-hover/link:translate-x-1 transition-transform" 
-                  fill="none" stroke="currentColor" viewBox="0 0 24 24"
+
+              {/* Action Buttons */}
+              <div className="flex gap-4">
+                <a 
+                  href={project.githubLink} 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="flex items-center justify-center bg-slate-900 hover:bg-blue-600 text-white font-semibold py-2.5 px-6 rounded-lg transition-colors text-sm shadow-md"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                </svg>
-              </a>
+                  View Source Repository
+                </a>
+              </div>
             </div>
           ))}
         </div>
