@@ -26,7 +26,7 @@ const Intro = () => {
 
         {/* Right Side: Circular Image */}
         <div className="md:w-2/5 flex justify-center items-center">
-          <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-8 border-slate-50 shadow-xl relative">
+          <div className="w-64 h-70 md:w-80 md:h-80 rounded-full overflow-hidden border-8 border-slate-50 shadow-xl relative">
             <img 
               src={profileImage} // Placeholder image imported above
               alt="Kaif Mumtaj Ansari" 
