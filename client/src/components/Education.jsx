@@ -61,6 +61,9 @@ const Education = () => {
                   <div className="text-lg font-semibold text-blue-600 mt-1">
                     {edu.institution} <span className="text-slate-400 font-normal text-base ml-1">| {edu.location}</span>
                   </div>
+                  <div className="inline-block px-3 py-1 bg-slate-100 text-slate-600 rounded-md text-xs font-bold uppercase tracking-wider">
+                {edu.cgpa ? `CGPA: ${edu.cgpa}` : `Grade: ${edu.grade}%`}
+              </div>
                 </div>
                 <span className="inline-block bg-blue-50 text-blue-700 border border-blue-100 px-4 py-1.5 rounded-full text-sm font-bold whitespace-nowrap self-start">
                   {edu.duration}
