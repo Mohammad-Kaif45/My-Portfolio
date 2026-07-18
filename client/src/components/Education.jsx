@@ -7,8 +7,9 @@ const educationData = [
     degree: "Bachelor of Technology in Computer Science & Engineering",
     institution: "Parul University",
     location: "Vadodara, Gujarat",
+    cgpa: "8.47/10",
     duration: "2022 - 2026",
-    status: "Currently in 8th Semester",
+    status: "Completed",
     description: "Focusing on advanced software engineering principles, full-stack development, and scalable backend architectures. Active in learning AI and Machine Learning foundations."
   },
   {
@@ -16,8 +17,19 @@ const educationData = [
     degree: "Higher Secondary Education",
     institution: "Jyoti Dham English Medium School",
     location: "Vapi, Gujarat",
-    duration: "Completed",
-    status: "Alumnus",
+    grade: 61.53,
+    duration: "2020 - 2022",
+    status: "Completed",
+    description: "Built a strong foundation in mathematics and computer science, sparking a passion for programming and technology."
+  },
+  {
+    id: 3,
+    degree: "Secondary Education",
+    institution: "Jyoti Dham English Medium School",
+    location: "Vapi, Gujarat",
+    grade: 71.33,
+    duration: "2018 - 2020",
+    status: "Completed",
     description: "Built a strong foundation in mathematics and computer science, sparking a passion for programming and technology."
   }
 ];
