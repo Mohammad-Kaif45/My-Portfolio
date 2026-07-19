@@ -6,6 +6,32 @@
   --animate-float-slow: float-slow 8s ease-in-out infinite;
   --animate-float-reverse: float-reverse 10s ease-in-out infinite;
 
+  /* Premium Electric/Indigo Blue Palette (Overrides blue) */
+  --color-blue-50: #f4f7ff;
+  --color-blue-100: #e8efff;
+  --color-blue-200: #d0dfff;
+  --color-blue-300: #a9c6ff;
+  --color-blue-400: #76a3ff;
+  --color-blue-500: #3b66ff; /* Neon Royal/Electric Blue */
+  --color-blue-600: #2542eb;
+  --color-blue-700: #1d2fd8;
+  --color-blue-800: #1c23af;
+  --color-blue-900: #1b1e8a;
+  --color-blue-950: #0c0b3b;
+
+  /* Premium Deep Obsidian/Slate Navy Palette (Overrides slate) */
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #242b47; /* Slate Blue Dark Accent */
+  --color-slate-800: #101528; /* Card Background Slate Blue */
+  --color-slate-900: #070a18; /* Dark Panel Slate Blue */
+  --color-slate-950: #03040c; /* Deep Obsidian Slate Black */
+
   @keyframes float-slow {
     0%, 100% {
       transform: translate(0px, 0px) scale(1);
@@ -25,9 +51,13 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
   /* 1. Set the main background to a clean, very light blue/gray and text to dark, and slate-950/slate-100 in dark mode */
   body {
-    @apply bg-slate-50 text-slate-900 font-sans antialiased dark:bg-slate-950 dark:text-slate-100;
+    @apply bg-slate-50 text-slate-900 font-sans antialiased dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300;
   }
 
   /* 2. Force all headings to be dark navy blue in light mode and white in dark mode */
@@ -43,11 +73,11 @@
 
 /* Blue styling for your contact form buttons without the crashing tags */
 #contact button {
-    @apply bg-blue-600 text-white font-bold hover:bg-blue-700;
+    @apply bg-blue-600 text-white font-bold hover:bg-blue-700 transition-all duration-300;
 }
 #contact form div label {
     @apply text-slate-700 font-semibold dark:text-slate-300;
 }
 #contact form div input, #contact form div textarea {
-    @apply bg-white border-slate-300 text-slate-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-slate-950 dark:border-slate-800 dark:text-white;
+    @apply bg-white border-slate-300 text-slate-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-slate-950 dark:border-slate-800 dark:text-white transition-all duration-300;
 }
