@@ -36,45 +36,45 @@ const educationData = [
 
 const Education = () => {
   return (
-    <section id="education" className="py-24 bg-slate-50 text-slate-900 border-t border-slate-200">
+    <section id="education" className="py-24 bg-slate-50 dark:bg-slate-900/30 text-slate-900 dark:text-slate-100 border-t border-slate-200 dark:border-slate-900 transition-colors duration-300">
       <div className="container mx-auto px-6 max-w-4xl">
         
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tighter text-slate-900">
-            Academic <span className="text-blue-600">Background</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tighter text-slate-900 dark:text-white">
+            Academic <span className="text-blue-600 dark:text-blue-500">Background</span>
           </h2>
-          <p className="text-lg text-slate-600">
+          <p className="text-lg text-slate-600 dark:text-slate-400">
             My formal computer science training and educational journey.
           </p>
         </div>
 
         <div className="space-y-8">
           {educationData.map((edu) => (
-            <div key={edu.id} className="bg-white border border-slate-200 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 relative overflow-hidden">
+            <div key={edu.id} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden">
               
               {/* Decorative Blue Side Bar */}
               <div className="absolute left-0 top-0 bottom-0 w-2 bg-blue-500"></div>
 
               <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4 gap-4">
                 <div>
-                  <h3 className="text-2xl font-bold text-slate-800">{edu.degree}</h3>
-                  <div className="text-lg font-semibold text-blue-600 mt-1">
-                    {edu.institution} <span className="text-slate-400 font-normal text-base ml-1">| {edu.location}</span>
+                  <h3 className="text-2xl font-bold text-slate-800 dark:text-white">{edu.degree}</h3>
+                  <div className="text-lg font-semibold text-blue-600 dark:text-blue-500 mt-1">
+                    {edu.institution} <span className="text-slate-400 dark:text-slate-500 font-normal text-base ml-1">| {edu.location}</span>
                   </div>
-                  <div className="inline-block px-3 py-1 bg-slate-100 text-slate-600 rounded-md text-xs font-bold uppercase tracking-wider">
+                  <div className="inline-block px-3 py-1 bg-slate-100 dark:bg-slate-950 text-slate-600 dark:text-slate-400 rounded-md text-xs font-bold uppercase tracking-wider">
                 {edu.cgpa ? `CGPA: ${edu.cgpa}` : `Grade: ${edu.grade}%`}
               </div>
                 </div>
-                <span className="inline-block bg-blue-50 text-blue-700 border border-blue-100 px-4 py-1.5 rounded-full text-sm font-bold whitespace-nowrap self-start">
+                <span className="inline-block bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-400 border border-blue-100 dark:border-blue-900/40 px-4 py-1.5 rounded-full text-sm font-bold whitespace-nowrap self-start">
                   {edu.duration}
                 </span>
               </div>
 
-              <p className="text-slate-600 leading-relaxed mb-4">
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
                 {edu.description}
               </p>
 
-              <div className="inline-block px-3 py-1 bg-slate-100 text-slate-600 rounded-md text-xs font-bold uppercase tracking-wider">
+              <div className="inline-block px-3 py-1 bg-slate-100 dark:bg-slate-950 text-slate-600 dark:text-slate-400 rounded-md text-xs font-bold uppercase tracking-wider">
                 {edu.status}
               </div>
             </div>

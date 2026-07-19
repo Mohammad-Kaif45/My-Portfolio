@@ -20,14 +20,14 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-24 bg-white text-slate-900">
+    <section id="projects" className="py-24 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
       <div className="container mx-auto px-6 max-w-6xl">
         
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tighter text-slate-900">
-            Featured <span className="text-blue-600">Projects</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tighter text-slate-900 dark:text-white">
+            Featured <span className="text-blue-600 dark:text-blue-500">Projects</span>
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             A selection of my best technical work, showcasing full-stack development and enterprise-grade architecture.
           </p>
         </div>
@@ -36,13 +36,13 @@ const Projects = () => {
           {projects.map((project) => (
             <div 
               key={project.id} 
-              className="bg-slate-50 border border-slate-200 rounded-2xl p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between"
+              className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between"
             >
               <div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-slate-600 mb-6 leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
                   {project.description}
                 </p>
                 
@@ -51,7 +51,7 @@ const Projects = () => {
                   {project.techStack.map((tech, index) => (
                     <span 
                       key={index} 
-                      className="px-3 py-1 bg-white border border-slate-200 text-blue-700 rounded-md text-xs font-bold shadow-sm"
+                      className="px-3 py-1 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-blue-700 dark:text-blue-400 rounded-md text-xs font-bold shadow-sm"
                     >
                       {tech}
                     </span>
@@ -65,7 +65,7 @@ const Projects = () => {
                   href={project.githubLink} 
                   target="_blank" 
                   rel="noreferrer"
-                  className="flex items-center justify-center bg-slate-900 hover:bg-blue-600 text-white font-semibold py-2.5 px-6 rounded-lg transition-colors text-sm shadow-md"
+                  className="flex items-center justify-center bg-slate-900 dark:bg-slate-950 border border-transparent dark:border-slate-800 hover:bg-blue-600 text-white font-semibold py-2.5 px-6 rounded-lg transition-colors text-sm shadow-md"
                 >
                   View Source Repository
                 </a>

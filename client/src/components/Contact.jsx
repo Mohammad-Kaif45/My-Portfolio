@@ -50,17 +50,17 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-br from-gray-50 to-gray-100">
+    <section id="contact" className="py-24 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-slate-950 dark:to-slate-900 transition-colors duration-300">
       <div className="container mx-auto px-6 max-w-4xl relative">
         
         {/* Background decorative blobs */}
-        <div className="absolute top-0 -left-4 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob"></div>
-        <div className="absolute top-0 -right-4 w-72 h-72 bg-indigo-300 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-0 -left-4 w-72 h-72 bg-blue-300 dark:bg-blue-900/30 rounded-full mix-blend-multiply filter blur-2xl opacity-30 dark:opacity-20 animate-blob"></div>
+        <div className="absolute top-0 -right-4 w-72 h-72 bg-indigo-300 dark:bg-indigo-900/30 rounded-full mix-blend-multiply filter blur-2xl opacity-30 dark:opacity-20 animate-blob animation-delay-2000"></div>
 
-        <div className="relative bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden md:flex">
+        <div className="relative bg-white dark:bg-slate-900 rounded-3xl shadow-xl border border-gray-100 dark:border-slate-800 overflow-hidden md:flex transition-all duration-300">
           
           {/* Left Side: Contact Info & Text */}
-          <div className="bg-gradient-to-br from-blue-600 to-indigo-700 p-10 md:w-2/5 text-white flex flex-col justify-center">
+          <div className="bg-gradient-to-br from-blue-600 to-indigo-700 dark:from-blue-900 dark:to-indigo-950 p-10 md:w-2/5 text-white flex flex-col justify-center">
             <h2 className="text-4xl font-extrabold mb-4 tracking-tight">Let's Connect.</h2>
             <p className="text-blue-100 mb-8 leading-relaxed">
               I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
@@ -78,39 +78,39 @@ const Contact = () => {
           </div>
 
           {/* Right Side: The Form */}
-          <div className="p-10 md:w-3/5 bg-white">
+          <div className="p-10 md:w-3/5 bg-white dark:bg-slate-900 transition-colors duration-300">
             <form onSubmit={handleSubmit} className="space-y-6">
               
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2" htmlFor="name">Full Name</label>
+                <label className="block text-sm font-semibold text-gray-700 dark:text-slate-300 mb-2" htmlFor="name">Full Name</label>
                 <input 
                   type="text" name="name" id="name" required
                   value={formData.name} onChange={handleChange}
-                  className="w-full px-5 py-3 bg-gray-50 border border-gray-200 text-gray-900 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                  className="w-full px-5 py-3 bg-gray-50 dark:bg-slate-950 border border-gray-200 dark:border-slate-800 text-gray-900 dark:text-white rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2" htmlFor="email">Email Address</label>
+                <label className="block text-sm font-semibold text-gray-700 dark:text-slate-300 mb-2" htmlFor="email">Email Address</label>
                 <input 
                   type="email" name="email" id="email" required
                   value={formData.email} onChange={handleChange}
-                  className="w-full px-5 py-3 bg-gray-50 border border-gray-200 text-gray-900 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                  className="w-full px-5 py-3 bg-gray-50 dark:bg-slate-950 border border-gray-200 dark:border-slate-800 text-gray-900 dark:text-white rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2" htmlFor="message">Your Message</label>
+                <label className="block text-sm font-semibold text-gray-700 dark:text-slate-300 mb-2" htmlFor="message">Your Message</label>
                 <textarea 
                   name="message" id="message" rows="4" required
                   value={formData.message} onChange={handleChange}
-                  className="w-full px-5 py-3 bg-gray-50 border border-gray-200 text-gray-900 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none"
+                  className="w-full px-5 py-3 bg-gray-50 dark:bg-slate-950 border border-gray-200 dark:border-slate-800 text-gray-900 dark:text-white rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none"
                 ></textarea>
               </div>
 
               <button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200"
+                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
               >
                 Send Message
               </button>
@@ -119,10 +119,10 @@ const Contact = () => {
               {status && (
                 <div className={`mt-6 p-4 rounded-xl text-center font-medium transition-all ${
                   status.includes('successfully') 
-                    ? 'bg-green-50 text-green-700 border border-green-200' 
+                    ? 'bg-green-50 dark:bg-green-950/30 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-900/40' 
                     : status === 'Sending...'
-                    ? 'bg-blue-50 text-blue-700 border border-blue-200 animate-pulse'
-                    : 'bg-red-50 text-red-700 border border-red-200'
+                    ? 'bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-900/40 animate-pulse'
+                    : 'bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-900/40'
                 }`}>
                   {status}
                 </div>

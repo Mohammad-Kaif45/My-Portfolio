@@ -4,15 +4,15 @@ import profileImage from '../assets/profile.jpg'; // Import your image here
 
 const Intro = () => {
   return (
-    <section id="intro" className="py-24 bg-white text-slate-900">
+    <section id="intro" className="py-24 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
       <div className="container mx-auto px-6 max-w-5xl flex flex-col-reverse md:flex-row items-center gap-12">
         
         {/* Left Side: Text & CTA */}
         <div className="md:w-3/5 text-center md:text-left flex flex-col justify-center">
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tighter leading-tight">
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tighter leading-tight text-slate-900 dark:text-white">
             Hi, I'm <span className="text-blue-600">Kaif Ansari</span>, a B.Tech CSE (2026) student.
           </h1>
-          <p className="text-xl text-slate-600 mb-10 leading-relaxed">
+          <p className="text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
             I specialize in building robust, scalable backend systems with Java and Spring Boot, and crafting dynamic user interfaces using the MERN stack. I'm currently looking for new opportunities in Software Engineering.
           </p>
           
@@ -26,7 +26,7 @@ const Intro = () => {
 
         {/* Right Side: Circular Image */}
         <div className="md:w-2/5 flex justify-center items-center">
-          <div className="w-64 h-70 md:w-80 md:h-80 rounded-full overflow-hidden border-8 border-slate-50 shadow-xl relative group transition-all duration-500 ease-out hover:scale-105 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
+          <div className="w-64 h-70 md:w-80 md:h-80 rounded-full overflow-hidden border-8 border-slate-50 dark:border-slate-900 shadow-xl relative group transition-all duration-500 ease-out hover:scale-105 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
             <img 
               src={profileImage} // Placeholder image imported above
               alt="Kaif Mumtaj Ansari" 
