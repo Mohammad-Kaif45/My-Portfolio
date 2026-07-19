@@ -53,8 +53,17 @@ const Intro = () => {
   }, []);
 
   return (
-    <section id="intro" className="py-24 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
-      <div className="container mx-auto px-6 max-w-5xl flex flex-col-reverse md:flex-row items-center gap-12">
+    <section id="intro" className="relative py-24 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-hidden">
+      
+      {/* Animated Background Glowing Blobs */}
+      <div className="absolute top-1/4 left-10 w-72 h-72 bg-blue-300 dark:bg-blue-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-20 dark:opacity-10 animate-float-slow pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-indigo-200 dark:bg-indigo-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-25 dark:opacity-15 animate-float-reverse pointer-events-none"></div>
+      <div className="absolute top-10 right-1/3 w-64 h-64 bg-purple-200 dark:bg-purple-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-15 dark:opacity-[0.08] animate-float-slow pointer-events-none"></div>
+
+      {/* Subtle modern dot grid overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-60 pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 max-w-5xl flex flex-col-reverse md:flex-row items-center gap-12 relative z-10">
         
         {/* Left Side: Text & CTA */}
         <div className="md:w-3/5 text-center md:text-left flex flex-col justify-center">

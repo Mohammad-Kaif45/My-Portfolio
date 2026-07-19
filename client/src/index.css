@@ -2,6 +2,28 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+  --animate-float-slow: float-slow 8s ease-in-out infinite;
+  --animate-float-reverse: float-reverse 10s ease-in-out infinite;
+
+  @keyframes float-slow {
+    0%, 100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    50% {
+      transform: translate(15px, -15px) scale(1.05);
+    }
+  }
+  @keyframes float-reverse {
+    0%, 100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    50% {
+      transform: translate(-15px, 15px) scale(0.95);
+    }
+  }
+}
+
 @layer base {
   /* 1. Set the main background to a clean, very light blue/gray and text to dark, and slate-950/slate-100 in dark mode */
   body {
