@@ -3,14 +3,70 @@ import { useEffect, useState } from 'react';
 import profileImage from '../assets/profile.jpg'; // Import your image here
 
 const Intro = () => {
+  const [typedSegments, setTypedSegments] = useState([
+    { text: '', className: '' },
+    { text: '', className: 'text-blue-600 dark:text-blue-500' },
+    { text: '', className: '' }
+  ]);
+  const [isDone, setIsDone] = useState(false);
+
+  useEffect(() => {
+    const fullSegments = [
+      { text: "Hi, I'm ", className: "" },
+      { text: "Kaif Ansari", className: "text-blue-600 dark:text-blue-500" },
+      { text: ", a B.Tech CSE (2026) student.", className: "" }
+    ];
+
+    let segmentIdx = 0;
+    let charIdx = 0;
+    let currentTyped = [
+      { text: '', className: '' },
+      { text: '', className: 'text-blue-600 dark:text-blue-500' },
+      { text: '', className: '' }
+    ];
+
+    const interval = setInterval(() => {
+      if (segmentIdx >= fullSegments.length) {
+        setIsDone(true);
+        clearInterval(interval);
+        return;
+      }
+
+      const currentSegment = fullSegments[segmentIdx];
+      currentTyped = currentTyped.map((seg, idx) => {
+        if (idx === segmentIdx) {
+          return { ...seg, text: currentSegment.text.slice(0, charIdx + 1) };
+        }
+        return seg;
+      });
+
+      setTypedSegments([...currentTyped]);
+      charIdx++;
+
+      if (charIdx >= currentSegment.text.length) {
+        segmentIdx++;
+        charIdx = 0;
+      }
+    }, 50); // 50ms per character for smooth typing speed
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="intro" className="py-24 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
       <div className="container mx-auto px-6 max-w-5xl flex flex-col-reverse md:flex-row items-center gap-12">
         
         {/* Left Side: Text & CTA */}
         <div className="md:w-3/5 text-center md:text-left flex flex-col justify-center">
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tighter leading-tight text-slate-900 dark:text-white">
-            Hi, I'm <span className="text-blue-600">Kaif Ansari</span>, a B.Tech CSE (2026) student.
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tighter leading-tight text-slate-900 dark:text-white min-h-[110px] sm:min-h-[150px]">
+            {typedSegments.map((seg, index) => (
+              <span key={index} className={seg.className}>
+                {seg.text}
+              </span>
+            ))}
+            {!isDone && (
+              <span className="inline-block w-[3px] h-[36px] md:h-[48px] bg-blue-600 dark:bg-blue-500 ml-1 align-middle animate-pulse"></span>
+            )}
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
             I specialize in building robust, scalable backend systems with Java and Spring Boot, and crafting dynamic user interfaces using the MERN stack. I'm currently looking for new opportunities in Software Engineering.
