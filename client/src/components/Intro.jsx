@@ -26,14 +26,14 @@ const Intro = () => {
 
         {/* Right Side: Circular Image */}
         <div className="md:w-2/5 flex justify-center items-center">
-          <div className="w-64 h-70 md:w-80 md:h-80 rounded-full overflow-hidden border-8 border-slate-50 shadow-xl relative">
+          <div className="w-64 h-70 md:w-80 md:h-80 rounded-full overflow-hidden border-8 border-slate-50 shadow-xl relative group transition-all duration-500 ease-out hover:scale-105 hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
             <img 
               src={profileImage} // Placeholder image imported above
               alt="Kaif Mumtaj Ansari" 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-2"
             />
             {/* Pulsing decorative ring */}
-            <div className="absolute inset-0 rounded-full border-4 border-blue-400 opacity-30 animate-pulse"></div>
+            <div className="absolute inset-0 rounded-full border-4 border-blue-400 opacity-30 animate-pulse group-hover:opacity-50 transition-opacity duration-500"></div>
           </div>
         </div>
       </div>
