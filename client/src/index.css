@@ -57,7 +57,7 @@
   
   /* 1. Set the main background to a clean, very light blue/gray and text to dark, and slate-950/slate-100 in dark mode */
   body {
-    @apply bg-slate-50 text-slate-900 font-sans antialiased dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300;
+    @apply bg-slate-950 text-slate-100 font-sans antialiased selection:bg-blue-600 selection:text-white;
   }
 
   /* 2. Force all headings to be dark navy blue in light mode and white in dark mode */
