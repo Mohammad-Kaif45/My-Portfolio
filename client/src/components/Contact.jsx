@@ -45,6 +45,7 @@ const Contact = () => {
         setStatus('Failed to send message. Please try again.');
       }
     } catch (error) {
+      console.error('Error sending message:', error);
       setStatus('Network error. Please try again.');
     }
   };
