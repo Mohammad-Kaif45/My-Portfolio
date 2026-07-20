@@ -9,6 +9,7 @@ import Experience from './components/Experience';
 import Footer from './components/Footer';
 import Education from './components/Education';
 import CurrentlyExploring from './components/CurrentlyExploring';
+import Terminal from './components/Terminal';
 
 const App = () => {
   useEffect(() => {
@@ -27,6 +28,7 @@ const App = () => {
       <Education />
       <Projects />
       <CurrentlyExploring />
+      <Terminal />
       <Contact />
       
       <Footer />
