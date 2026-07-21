@@ -8,7 +8,7 @@ const Intro = () => {
     { text: '', className: 'text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-400 font-black' },
     { text: '', className: '' }
   ]);
-  const [isDone, setIsDone] = useState(false);
+  const [isDone, setIsDone] = useState(false); // hello
 
   useEffect(() => {
     const fullSegments = [

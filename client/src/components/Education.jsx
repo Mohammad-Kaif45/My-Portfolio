@@ -8,7 +8,7 @@ const primaryEducation = {
   location: "Vadodara, Gujarat",
   score: "CGPA: 8.47 / 10",
   duration: "2022 - 2026",
-  status: "In Progress",
+  status: "Completed",
   description: "Specializing in software engineering principles, enterprise backend architecture, full-stack web development, and cloud-native microservices. Consistently applying theoretical concepts to real-world software projects.",
   coursework: [
     "Data Structures & Algorithms",
