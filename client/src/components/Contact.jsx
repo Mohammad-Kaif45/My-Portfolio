@@ -168,7 +168,7 @@ const Contact = () => {
               </span>
               <div className="grid grid-cols-2 gap-3">
                 <a 
-                  href="https://www.linkedin.com/in/ansari-kaif-0540872aa/" 
+                  href="https://www.linkedin.com/in/kaif-ansari-0540872aa" 
                   target="_blank" 
                   rel="noreferrer"
                   className="p-3 rounded-xl bg-slate-950/80 border border-slate-800/80 text-xs font-bold text-slate-300 hover:text-white hover:border-[#0A66C2]/60 transition-all flex items-center gap-2"
